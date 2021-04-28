@@ -31,6 +31,7 @@ BuildRequires:	pkgconfig(accountsservice)
 BuildRequires:	pkgconfig(appstream-glib)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(flatpak)
+BuildRequires:  pam-devel
 BuildRequires:	itstool
 
 %description
