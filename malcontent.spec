@@ -1,14 +1,14 @@
-%define api		0
-%define major		0
-%define gi_major	0
-%define libname		%mklibname malcontent %major
-%define develname	%mklibname -d malcontent
-%define girname		%mklibname malcontent-gir %gi_major
+%define api 0
+%define major 0
+%define gi_major 0
+%define libname %mklibname malcontent %major
+%define develname %mklibname -d malcontent
+%define girname %mklibname malcontent-gir %gi_major
 
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
+%define url_ver %(echo %{version}|cut -d. -f1,2)
 
 Name:		malcontent
-Version:	0.10.1
+Version:	0.11.0
 Release:	1
 Summary:	Library for parental controls support
 Group:		System/Libraries
@@ -29,9 +29,11 @@ BuildRequires:	pkgconfig(glib-testing-0)
 BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(accountsservice)
 BuildRequires:	pkgconfig(appstream-glib)
-BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(appstream)
+BuildRequires:	pkgconfig(gtk4)
+BuildRequires:	pkgconfig(libadwaita-1)
 BuildRequires:	pkgconfig(flatpak)
-BuildRequires:  pam-devel
+BuildRequires:	pam-devel
 BuildRequires:	itstool
 
 %description
@@ -58,7 +60,7 @@ Requires:	%{name} >= %{version}-%{release}
 %to filter or limit the access of child accounts to inappropriate content.
 
 
-%package -n %develname
+%package -n %{develname}
 Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
@@ -102,7 +104,6 @@ GObject Introspection interface description for %{name}.
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
 %{_libdir}/pkgconfig/%{name}-ui-%{api}.pc
-
 %{_datadir}/gir-1.0/Malcontent-%{gi_major}.gir
 %{_datadir}/gir-1.0/MalcontentUi-%{gi_major}.gir
 
@@ -113,7 +114,7 @@ GObject Introspection interface description for %{name}.
 %files
 %{_bindir}/malcontent-client
 %{_bindir}/malcontent-control
-%{_mandir}/man8/malcontent-client.8*
+%doc %{_mandir}/man8/malcontent-client.8*
 %{_libdir}/security/pam_malcontent.so
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AccountInfo.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AppFilter.xml
