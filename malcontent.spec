@@ -84,7 +84,9 @@ GObject Introspection interface description for %{name}.
 %autosetup -p1
 
 %build
-%meson -Dinstalled_tests=false
+%meson \
+        -Dinstalled_tests=false \
+        -Dui=enabled
 %meson_build
 
 %install
