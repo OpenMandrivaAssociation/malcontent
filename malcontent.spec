@@ -1,6 +1,7 @@
 %define api 0
 %define major 0
 %define gi_major 0
+%define ui_major 1
 %define libname %mklibname malcontent %major
 %define develname %mklibname -d malcontent
 %define girname %mklibname malcontent-gir %gi_major
@@ -98,20 +99,21 @@ GObject Introspection interface description for %{name}.
 
 %files -n %{libname}
 %{_libdir}/lib%{name}-%{api}.so.%{major}{,.*}
-#{_libdir}/lib%{name}-ui-%{api}.so.%{major}{,.*}
+%{_libdir}/lib%{name}-ui-%{ui_major}.so.%{ui_major}{,.*}
+%{_libdir}/lib%{name}-ui-%{ui_major}.so.%{version}
 
 %files -n %{develname}
 #%%doc %%{_datadir}/gtk-doc/html/%{name}/
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
-#{_libdir}/pkgconfig/%{name}-ui-%{api}.pc
+%{_libdir}/pkgconfig/%{name}-ui-%{ui_major}.pc
 %{_datadir}/gir-1.0/Malcontent-%{gi_major}.gir
-#{_datadir}/gir-1.0/MalcontentUi-%{gi_major}.gir
+%{_datadir}/gir-1.0/MalcontentUi-%{ui_major}.gir
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Malcontent-%{gi_major}.typelib
-#{_libdir}/girepository-1.0/MalcontentUi-%{gi_major}.typelib
+%{_libdir}/girepository-1.0/MalcontentUi-%{ui_major}.typelib
 
 %files
 %{_bindir}/malcontent-client
