@@ -96,7 +96,7 @@ GObject Introspection interface description for %{name}.
 
 %files -n %{libname}
 %{_libdir}/lib%{name}-%{api}.so.%{major}{,.*}
-%{_libdir}/lib%{name}-ui-%{api}.so.%{major}{,.*}
+#{_libdir}/lib%{name}-ui-%{api}.so.%{major}{,.*}
 
 %files -n %{develname}
 #%%doc %%{_datadir}/gtk-doc/html/%{name}/
