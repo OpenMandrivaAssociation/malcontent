@@ -103,13 +103,13 @@ GObject Introspection interface description for %{name}.
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
-%{_libdir}/pkgconfig/%{name}-ui-%{api}.pc
+#{_libdir}/pkgconfig/%{name}-ui-%{api}.pc
 %{_datadir}/gir-1.0/Malcontent-%{gi_major}.gir
-%{_datadir}/gir-1.0/MalcontentUi-%{gi_major}.gir
+#{_datadir}/gir-1.0/MalcontentUi-%{gi_major}.gir
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Malcontent-%{gi_major}.typelib
-%{_libdir}/girepository-1.0/MalcontentUi-%{gi_major}.typelib
+#{_libdir}/girepository-1.0/MalcontentUi-%{gi_major}.typelib
 
 %files
 %{_bindir}/malcontent-client
