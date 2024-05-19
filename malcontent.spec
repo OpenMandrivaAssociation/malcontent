@@ -9,7 +9,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
 Name:		malcontent
-Version:	0.11.1
+Version:	0.12.0
 Release:	1
 Summary:	Library for parental controls support
 Group:		System/Libraries
