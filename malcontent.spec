@@ -10,7 +10,7 @@
 
 Name:		malcontent
 Version:	0.12.0
-Release:	1
+Release:	2
 Summary:	Library for parental controls support
 Group:		System/Libraries
 License:	LGPLv2+
