@@ -19,6 +19,7 @@ Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version
 
 BuildRequires:	gettext-devel
 BuildRequires:	gtk-doc
+BuildRequires:  gi-docgen
 BuildRequires:	meson
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gio-2.0) >= 2.17.3
