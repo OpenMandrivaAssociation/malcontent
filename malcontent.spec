@@ -29,6 +29,7 @@ BuildRequires:	pkgconfig(gio-2.0) >= 2.17.3
 BuildRequires:	pkgconfig(glib-2.0) >= 2.19.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gthread-2.0)
+BuildRequires:  pkgconfig(libsoup-3.0)
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(glib-testing-0)
 BuildRequires:	pkgconfig(polkit-gobject-1)
