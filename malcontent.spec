@@ -16,6 +16,9 @@ Group:		System/Libraries
 License:	LGPLv2+
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/malcontent-%{version}.tar.bz2
+Source1:        https://gitlab.gnome.org/pwithnall/libgsystemservice/-/archive/0.3.0/libgsystemservice-0.3.0.tar.bz2
+Source2:        gvdb.tar.xz
+Source3:        http://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz
 
 BuildRequires:	gettext-devel
 BuildRequires:	gtk-doc
@@ -26,6 +29,8 @@ BuildRequires:	pkgconfig(gio-2.0) >= 2.17.3
 BuildRequires:	pkgconfig(glib-2.0) >= 2.19.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gthread-2.0)
+BuildRequires:	pkgconfig(gnome-desktop-4)
+BuildRequires:  pkgconfig(libsoup-3.0)
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.15.2
 BuildRequires:	pkgconfig(glib-testing-0)
 BuildRequires:	pkgconfig(polkit-gobject-1)
@@ -84,6 +89,11 @@ GObject Introspection interface description for %{name}.
 
 %prep
 %autosetup -p1
+tar -xf %{SOURCE1} -C subprojects
+mv subprojects/libgsystemservice-0.3.0 subprojects/libgsystemservice
+tar -xf %{SOURCE2} -C subprojects
+tar -xf %{SOURCE3} -C subprojects
+cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 
 %build
 %meson \
@@ -104,7 +114,8 @@ GObject Introspection interface description for %{name}.
 %{_libdir}/lib%{name}-ui-%{ui_major}.so.%{version}
 
 %files -n %{develname}
-#%%doc %%{_datadir}/gtk-doc/html/%{name}/
+%doc %{_datadir}/doc/libmalcontent-0/
+%doc %{_datadir}/doc/libmalcontent-ui-1/
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
@@ -119,8 +130,15 @@ GObject Introspection interface description for %{name}.
 %files
 %{_bindir}/malcontent-client
 %{_bindir}/malcontent-control
+%{_libexecdir}/malcontent-webd-update
 %doc %{_mandir}/man8/malcontent-client.8*
+%doc %{_mandir}/man8/malcontent-timer-extension-agent.8.zst
+%doc %{_mandir}/man8/malcontent-timerd.8.zst
+%doc %{_mandir}/man8/malcontent-webd.8.zst
 %{_libdir}/security/pam_malcontent.so
+%{_unitdir}/malcontent-*
+%{_sysusersdir}/malcontent-*
+%{_datadir}/accountsservice/interfaces/org.freedesktop.Malcontent.WebFilter.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AccountInfo.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AppFilter.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
@@ -128,9 +146,16 @@ GObject Introspection interface description for %{name}.
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.AccountInfo.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.AppFilter.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
+%{_datadir}/dbus-1/services/org.freedesktop.MalcontentControl.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.MalcontentTimer1.ExtensionAgent.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.MalcontentTimer1.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.MalcontentWeb1.service
+%{_datadir}/dbus-1/system.d/org.freedesktop.MalcontentTimer1.ExtensionAgent.conf
+%{_datadir}/dbus-1/system.d/org.freedesktop.MalcontentTimer1.conf
+%{_datadir}/dbus-1/system.d/org.freedesktop.MalcontentWeb1.conf
 %{_datadir}/icons/hicolor/scalable/apps/org.freedesktop.MalcontentControl.svg
 %{_datadir}/icons/hicolor/symbolic/apps/org.freedesktop.MalcontentControl-symbolic.svg
-%{_datadir}/metainfo/org.freedesktop.MalcontentControl.appdata.xml
+%{_datadir}/metainfo/org.freedesktop.MalcontentControl.metainfo.xml
 %{_datadir}/polkit-1/actions/com.endlessm.ParentalControls.policy
 %{_datadir}/polkit-1/actions/org.freedesktop.MalcontentControl.policy
 %{_datadir}/polkit-1/rules.d/com.endlessm.ParentalControls.rules
