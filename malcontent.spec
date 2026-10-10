@@ -17,7 +17,7 @@ License:	LGPLv2+
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/malcontent-%{version}.tar.bz2
 Source1:        https://gitlab.gnome.org/pwithnall/libgsystemservice/-/archive/0.3.0/libgsystemservice-0.3.0.tar.bz2
-Source2:        gvdb.tar.bz2
+Source2:        gvdb.tar.xz
 Source3:        http://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz
 
 BuildRequires:	gettext-devel
