@@ -114,7 +114,8 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %{_libdir}/lib%{name}-ui-%{ui_major}.so.%{version}
 
 %files -n %{develname}
-#%%doc %%{_datadir}/gtk-doc/html/%{name}/
+%doc %{_datadir}/doc/libmalcontent-0/
+%doc %{_datadir}/doc/libmalcontent-ui-1/
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}-%{api}.pc
@@ -129,8 +130,15 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %files
 %{_bindir}/malcontent-client
 %{_bindir}/malcontent-control
+%{_libexecdir}/malcontent-webd-update
 %doc %{_mandir}/man8/malcontent-client.8*
+%doc %{_mandir}/man8/malcontent-timer-extension-agent.8.zst
+%doc %{_mandir}/man8/malcontent-timerd.8.zst
+%doc %{_mandir}/man8/malcontent-webd.8.zst
 %{_libdir}/security/pam_malcontent.so
+%{_unitdir}/malcontent-*
+%{_sysusersdir}/malcontent-*
+%{_datadir}/accountsservice/interfaces/org.freedesktop.Malcontent.WebFilter.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AccountInfo.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AppFilter.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
@@ -138,6 +146,13 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.AccountInfo.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.AppFilter.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
+%{_datadir}/dbus-1/services/org.freedesktop.MalcontentControl.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.MalcontentTimer1.ExtensionAgent.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.MalcontentTimer1.service
+%{_datadir}/dbus-1/system-services/org.freedesktop.MalcontentWeb1.service
+%{_datadir}/dbus-1/system.d/org.freedesktop.MalcontentTimer1.ExtensionAgent.conf
+%{_datadir}/dbus-1/system.d/org.freedesktop.MalcontentTimer1.conf
+%{_datadir}/dbus-1/system.d/org.freedesktop.MalcontentWeb1.conf
 %{_datadir}/icons/hicolor/scalable/apps/org.freedesktop.MalcontentControl.svg
 %{_datadir}/icons/hicolor/symbolic/apps/org.freedesktop.MalcontentControl-symbolic.svg
 %{_datadir}/metainfo/org.freedesktop.MalcontentControl.metainfo.xml
