@@ -140,7 +140,7 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
 %{_datadir}/icons/hicolor/scalable/apps/org.freedesktop.MalcontentControl.svg
 %{_datadir}/icons/hicolor/symbolic/apps/org.freedesktop.MalcontentControl-symbolic.svg
-%{_datadir}/metainfo/org.freedesktop.MalcontentControl.appdata.xml
+%{_datadir}/metainfo/org.freedesktop.MalcontentControl.metainfo.xml
 %{_datadir}/polkit-1/actions/com.endlessm.ParentalControls.policy
 %{_datadir}/polkit-1/actions/org.freedesktop.MalcontentControl.policy
 %{_datadir}/polkit-1/rules.d/com.endlessm.ParentalControls.rules
