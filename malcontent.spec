@@ -112,6 +112,8 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %{_libdir}/lib%{name}-%{api}.so.%{major}{,.*}
 %{_libdir}/lib%{name}-ui-%{ui_major}.so.%{ui_major}{,.*}
 %{_libdir}/lib%{name}-ui-%{ui_major}.so.%{version}
+%{_libdir}/libnss_malcontent.so.%{version}
+%{_libdir}/libnss_malcontent.so.2
 
 %files -n %{develname}
 %doc %{_datadir}/doc/libmalcontent-0/
@@ -131,6 +133,9 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %{_bindir}/malcontent-client
 %{_bindir}/malcontent-control
 %{_libexecdir}/malcontent-webd-update
+%{_libexecdir}/malcontent-timer-extension-agent
+%{_libexecdir}/malcontent-timerd
+%{_libexecdir}/malcontent-webd
 %doc %{_mandir}/man8/malcontent-client.8*
 %doc %{_mandir}/man8/malcontent-timer-extension-agent.8.zst
 %doc %{_mandir}/man8/malcontent-timerd.8.zst
@@ -143,6 +148,7 @@ cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.AppFilter.xml
 %{_datadir}/accountsservice/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
 %{_datadir}/applications/org.freedesktop.MalcontentControl.desktop
+%{_datadir}/dbus-1/interfaces/org.freedesktop.Malcontent.WebFilter.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.AccountInfo.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.AppFilter.xml
 %{_datadir}/dbus-1/interfaces/com.endlessm.ParentalControls.SessionLimits.xml
