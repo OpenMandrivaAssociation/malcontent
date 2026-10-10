@@ -17,6 +17,8 @@ License:	LGPLv2+
 URL:		https://gitlab.freedesktop.org/pwithnall/malcontent
 Source0:	https://gitlab.freedesktop.org/pwithnall/malcontent/-/archive/%{version}/malcontent-%{version}.tar.bz2
 Source1:        https://gitlab.gnome.org/pwithnall/libgsystemservice/-/archive/0.3.0/libgsystemservice-0.3.0.tar.bz2
+Source2:        gvdb.tar.bz2
+Source3:        http://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz
 
 BuildRequires:	gettext-devel
 BuildRequires:	gtk-doc
@@ -87,6 +89,9 @@ GObject Introspection interface description for %{name}.
 %autosetup -p1
 tar -xf %{SOURCE1} -C subprojects
 mv subprojects/libgsystemservice-0.3.0 subprojects/libgsystemservice
+tar -xf %{SOURCE2} -C subprojects
+tar -xf %{SOURCE3} -C subprojects
+cp subprojects/packagefiles/tinycdb/meson.build subprojects/tinycdb-0.81
 
 %build
 %meson \
